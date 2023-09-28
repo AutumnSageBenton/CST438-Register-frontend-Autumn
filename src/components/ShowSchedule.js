@@ -46,9 +46,9 @@ const ShowSchedule = () => {
          } );
     }
 
- /*
-  *  add course
-  */ 
+    /*
+    *  add course
+    */ 
     const  addCourse = (course_id) => {
         setMessage('');
         console.log("start addCourse"); 
