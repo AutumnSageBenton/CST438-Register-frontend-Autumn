@@ -52,7 +52,7 @@ function AddStudent(props) {
 
   return (
       <div>
-        <Button variant="outlined" color="primary" style={{margin: 10}} onClick={handleClickOpen}>
+        <Button id="NewStudent" variant="outlined" color="primary" style={{margin: 10}} onClick={handleClickOpen}>
           New Student
         </Button>
         <Dialog open={open} onClose={handleClose}>
@@ -63,7 +63,7 @@ function AddStudent(props) {
               <TextField fullWidth label="email" name="email" onChange={handleChange}  /> 
             </DialogContent>
             <DialogActions>
-              <Button color="secondary" onClick={handleClose}>Close</Button>
+              <Button id="Close" color="secondary" onClick={handleClose}>Close</Button>
               <Button id="Add" color="primary" onClick={addStudent}>Add Student</Button>
             </DialogActions>
           </Dialog>      

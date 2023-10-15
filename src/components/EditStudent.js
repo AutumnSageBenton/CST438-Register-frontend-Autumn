@@ -64,8 +64,8 @@ const EditStudent = (props)  => {
                 <TextField fullWidth label="email" name="email" value={student.email} onChange={editChange}  /> 
             </DialogContent>
             <DialogActions>
-                <Button color="secondary" onClick={editClose}>Close</Button>
-                <Button color="primary" onClick={editSave}>Save</Button>
+                <Button id="Close" color="secondary" onClick={editClose}>Close</Button>
+                <Button id="editSave" color="primary" onClick={editSave}>Save</Button>
             </DialogActions>
         </Dialog> 
         </div>                       
