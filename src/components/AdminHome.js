@@ -65,17 +65,17 @@ const AdminHome = ()  => {
               {students.map((row,idx) => (
                       <tr key={idx}>
                         <td>{row.studentId}</td>
-                        <td>{row.name}</td>
+                        <td id={row.name}>{row.name}</td>
                         <td>{row.email}</td>
                         <td>{row.statusCode}</td>
                         <td>{row.status}</td>
-                        <td><EditStudent student={students[idx]} onClose={refreshStudents} /></td>
-                        <td><button type="button" margin="auto" onClick={deleteStudent}>Delete</button></td>
+                        <td id="editStudent"><EditStudent student={students[idx]} onClose={refreshStudents} /></td>
+                        <td id="deleteStudent"><button id="deleteStudent" type="button" margin="auto" onClick={deleteStudent}>Delete</button></td>
                       </tr>
                     ))}
               </tbody>
             </table>
-            <AddStudent onClose={refreshStudents} />
+            <AddStudent id="NewStudent" onClose={refreshStudents}/>
         </div>
       </div>
     )
