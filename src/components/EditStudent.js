@@ -8,10 +8,10 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
 const EditStudent = (props)  => {
-
     const [open, setOpen] = useState(false);
     const [editMessage, setEditMessage] = useState('');
     const [student, setStudent] = useState(props.student);
+    const token = sessionStorage.getItem("jwt");
 
     /*
      *  dialog for edit student
@@ -35,7 +35,7 @@ const EditStudent = (props)  => {
         fetch(`${SERVER_URL}/student/${student.studentId}`, 
             {  
             method: 'PUT', 
-            headers: { 'Content-Type': 'application/json', }, 
+            headers: { 'Content-Type': 'application/json', 'Authorization': token}, 
             body: JSON.stringify(student)
             } 
         )

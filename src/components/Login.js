@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-// import Game from './Game';
 import Home from './Home';
+import {SERVER_URL} from '../constants'
+
 
 function Login() {
     const[user, setUser] = useState({username:'', password:''});
@@ -11,7 +12,7 @@ function Login() {
     }
 
     const login = () => {
-        fetch('http://localhost:8080/login', {
+        fetch(`${SERVER_URL}/login`, {
             method:'POST',
             headers: {'Content-Type':'application/json' },
             body: JSON.stringify(user)

@@ -15,10 +15,13 @@ const AdminHome = ()  => {
     */
     const [students, setStudents] = useState([]);
     const [message, setMessage] = useState('');
+    const token = sessionStorage.getItem("jwt");
 
     const fetchStudents = () => {
         console.log("fetchStudents ");
-        fetch(`${SERVER_URL}/student`)
+        fetch(`${SERVER_URL}/student`, {
+          headers: {'Authorization': token}
+        })
         .then((response) => response.json() )
         .then((data) => setStudents(data) )
         .catch((err) =>  { console.log("fetch error "+err); } );
@@ -34,11 +37,10 @@ const AdminHome = ()  => {
         console.log("deleteStudent "+row_id);
         const studentId = students[row_id].studentId;
         console.log("student_id "+studentId);
-        fetch(`${SERVER_URL}/student/${studentId}`, 
-          {  
+        fetch(`${SERVER_URL}/student/${studentId}`, {  
             method: 'DELETE', 
-          } 
-        )
+            headers: {'Authorization': token}
+        })
         .then((response) => { 
             if (response.ok) {
                 setMessage('Student deleted.');

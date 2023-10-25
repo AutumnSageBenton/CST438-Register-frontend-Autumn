@@ -15,7 +15,8 @@ function AddStudent(props) {
   const [open, setOpen] = useState(false);
   const [student, setStudent] = useState({name:'', email:''});
   const [message, setMessage] = useState('');
-  
+  const token = sessionStorage.getItem("jwt");
+
   const handleClickOpen = () => {
     setMessage('');
     setStudent({name:'', email:''});
@@ -33,10 +34,9 @@ function AddStudent(props) {
 
     const addStudent = () => {
         console.log("addStudent "+JSON.stringify(student));
-        fetch(`${SERVER_URL}/student`, 
-            {  
+        fetch(`${SERVER_URL}/student`, {  
             method: 'POST', 
-            headers: { 'Content-Type': 'application/json', }, 
+            headers: { 'Content-Type': 'application/json','Authorization': token}, 
             body: JSON.stringify(student)
             } 
         )
